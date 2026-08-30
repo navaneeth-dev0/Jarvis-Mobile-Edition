@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#02070a">
+    <title>J.A.R.V.I.S. | Mobile Edition</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="logo">
+                <span>J</span>
+            </div>
+
+            <div>
+                <h1>J.A.R.V.I.S.</h1>
+                <p>MOBILE INTELLIGENCE SYSTEM</p>
+            </div>
+        </div>
+
+        <div class="online">
+            <i></i>
+            ONLINE
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+
+            <div class="reactor">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="orbit orbit-three"></div>
+
+                <div class="reactor-core">
+                    <div class="core-inner">J</div>
+                </div>
+
+            </div>
+
+            <h2>SYSTEMS ONLINE</h2>
+            <p>All primary systems are operational.</p>
+
+        </section>
+
+
+        <!-- SYSTEM STATUS -->
+        <section class="status-grid">
+
+            <div class="status-card">
+                <div class="status-icon">⚡</div>
+                <div>
+                    <span>CORE</span>
+                    <strong>ONLINE</strong>
+                </div>
+                <b></b>
+            </div>
+
+            <div class="status-card">
+                <div class="status-icon">🧠</div>
+                <div>
+                    <span>AI ENGINE</span>
+                    <strong>READY</strong>
+                </div>
+                <b></b>
+            </div>
+
+            <div class="status-card">
+                <div class="status-icon">🛡</div>
+                <div>
+                    <span>SECURITY</span>
+                    <strong>ACTIVE</strong>
+                </div>
+                <b></b>
+            </div>
+
+            <div class="status-card">
+                <div class="status-icon">🌐</div>
+                <div>
+                    <span>NETWORK</span>
+                    <strong>CONNECTED</strong>
+                </div>
+                <b></b>
+            </div>
+
+        </section>
+
+
+        <!-- QUICK COMMANDS -->
+        <section class="commands">
+
+            <div class="section-header">
+                <span>QUICK COMMANDS</span>
+                <small>READY</small>
+            </div>
+
+            <div class="command-grid">
+
+                <button class="command" data-command="System status">
+                    <span>◉</span>
+                    STATUS
+                </button>
+
+                <button class="command" data-command="Run system diagnostics">
+                    <span>⚙</span>
+                    DIAGNOSTICS
+                </button>
+
+                <button class="command" data-command="Tell me the time">
+                    <span>◷</span>
+                    TIME
+                </button>
+
+                <button class="command" data-command="Who are you">
+                    <span>◇</span>
+                    J.A.R.V.I.S.
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHAT -->
+        <section class="console">
+
+            <div class="console-header">
+                <div>
+                    <span class="console-title">J.A.R.V.I.S. CONSOLE</span>
+                    <span class="console-subtitle">LOCAL FRONTEND MODE</span>
+                </div>
+
+                <div class="live">
+                    <i></i> LIVE
+                </div>
+            </div>
+
+
+            <div id="chat" class="chat">
+
+                <div class="message ai">
+                    <span class="sender">J.A.R.V.I.S.</span>
+                    Systems online. How may I assist you, Boss?
+                </div>
+
+            </div>
+
+
+            <div class="typing" id="typing">
+                J.A.R.V.I.S. is processing...
+            </div>
+
+
+            <div class="input-box">
+
+                <input
+                    id="msg"
+                    type="text"
+                    placeholder="Enter command..."
+                    autocomplete="off"
+                >
+
+                <button id="send" aria-label="Send">
+                    ➤
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <span>J.A.R.V.I.S. MOBILE EDITION</span>
+        <span>FRONTEND SYSTEM v2.0</span>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
