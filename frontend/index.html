@@ -2,135 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#02070a">
-    <title>J.A.R.V.I.S. | Mobile Edition</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#02090c">
+    <meta name="description" content="J.A.R.V.I.S. Mobile Edition">
+
+    <title>J.A.R.V.I.S. Mobile Edition</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="app">
+    <div class="background-grid"></div>
+    <div class="scanline"></div>
 
-    <!-- HEADER -->
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">
-                <span>J</span>
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="logo">
+                    <span>J</span>
+                </div>
+
+                <div class="brand-text">
+                    <h1>J.A.R.V.I.S.</h1>
+                    <p>MOBILE EDITION</p>
+                </div>
+
             </div>
 
-            <div>
-                <h1>J.A.R.V.I.S.</h1>
-                <p>MOBILE INTELLIGENCE SYSTEM</p>
+            <div class="status">
+                <span class="status-dot"></span>
+                <span>ONLINE</span>
             </div>
-        </div>
 
-        <div class="online">
-            <i></i>
-            ONLINE
-        </div>
-    </header>
+        </header>
 
 
-    <!-- HERO -->
-    <main>
-
-        <section class="hero">
+        <!-- REACTOR -->
+        <section class="reactor-section">
 
             <div class="reactor">
 
-                <div class="orbit orbit-one"></div>
-                <div class="orbit orbit-two"></div>
-                <div class="orbit orbit-three"></div>
+                <div class="reactor-glow"></div>
 
-                <div class="reactor-core">
-                    <div class="core-inner">J</div>
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+
+                <div class="crosshair horizontal"></div>
+                <div class="crosshair vertical"></div>
+
+                <div class="core">
+                    <span>J</span>
                 </div>
 
             </div>
 
             <h2>SYSTEMS ONLINE</h2>
-            <p>All primary systems are operational.</p>
+
+            <p>
+                All J.A.R.V.I.S. systems are operational.
+            </p>
 
         </section>
 
 
-        <!-- SYSTEM STATUS -->
-        <section class="status-grid">
+        <!-- SYSTEM CARDS -->
+        <section class="systems">
 
-            <div class="status-card">
-                <div class="status-icon">⚡</div>
-                <div>
-                    <span>CORE</span>
-                    <strong>ONLINE</strong>
+            <div class="system-card">
+
+                <div class="system-icon">⚡</div>
+
+                <div class="system-info">
+                    <strong>CORE SYSTEM</strong>
+                    <small>Operational</small>
                 </div>
-                <b></b>
+
+                <div class="card-indicator"></div>
+
             </div>
 
-            <div class="status-card">
-                <div class="status-icon">🧠</div>
-                <div>
-                    <span>AI ENGINE</span>
-                    <strong>READY</strong>
+
+            <div class="system-card">
+
+                <div class="system-icon">🧠</div>
+
+                <div class="system-info">
+                    <strong>AI ENGINE</strong>
+                    <small>Ready</small>
                 </div>
-                <b></b>
+
+                <div class="card-indicator"></div>
+
             </div>
 
-            <div class="status-card">
-                <div class="status-icon">🛡</div>
-                <div>
-                    <span>SECURITY</span>
-                    <strong>ACTIVE</strong>
+
+            <div class="system-card">
+
+                <div class="system-icon">🛡️</div>
+
+                <div class="system-info">
+                    <strong>SECURITY</strong>
+                    <small>Protected</small>
                 </div>
-                <b></b>
-            </div>
 
-            <div class="status-card">
-                <div class="status-icon">🌐</div>
-                <div>
-                    <span>NETWORK</span>
-                    <strong>CONNECTED</strong>
-                </div>
-                <b></b>
-            </div>
-
-        </section>
-
-
-        <!-- QUICK COMMANDS -->
-        <section class="commands">
-
-            <div class="section-header">
-                <span>QUICK COMMANDS</span>
-                <small>READY</small>
-            </div>
-
-            <div class="command-grid">
-
-                <button class="command" data-command="System status">
-                    <span>◉</span>
-                    STATUS
-                </button>
-
-                <button class="command" data-command="Run system diagnostics">
-                    <span>⚙</span>
-                    DIAGNOSTICS
-                </button>
-
-                <button class="command" data-command="Tell me the time">
-                    <span>◷</span>
-                    TIME
-                </button>
-
-                <button class="command" data-command="Who are you">
-                    <span>◇</span>
-                    J.A.R.V.I.S.
-                </button>
+                <div class="card-indicator"></div>
 
             </div>
 
@@ -138,64 +137,87 @@
 
 
         <!-- CHAT -->
-        <section class="console">
+        <section class="chat-section">
 
-            <div class="console-header">
+            <div class="section-title">
+
                 <div>
-                    <span class="console-title">J.A.R.V.I.S. CONSOLE</span>
-                    <span class="console-subtitle">LOCAL FRONTEND MODE</span>
+                    <span class="title-main">
+                        J.A.R.V.I.S. CONSOLE
+                    </span>
+
+                    <span class="title-sub">
+                        COMMAND INTERFACE
+                    </span>
                 </div>
 
                 <div class="live">
-                    <i></i> LIVE
-                </div>
-            </div>
-
-
-            <div id="chat" class="chat">
-
-                <div class="message ai">
-                    <span class="sender">J.A.R.V.I.S.</span>
-                    Systems online. How may I assist you, Boss?
+                    <span>●</span> LIVE
                 </div>
 
             </div>
 
 
-            <div class="typing" id="typing">
-                J.A.R.V.I.S. is processing...
+            <div
+                id="chat"
+                class="chat"
+                aria-live="polite"
+                aria-label="J.A.R.V.I.S. conversation"
+            >
+
+                <div class="msg ai">
+                    <span class="message-label">
+                        J.A.R.V.I.S
+                    </span>
+
+                    <span>
+                        Systems online. How may I assist you, Boss?
+                    </span>
+                </div>
+
             </div>
 
 
-            <div class="input-box">
+            <div class="input-area">
 
                 <input
                     id="msg"
                     type="text"
                     placeholder="Enter command..."
                     autocomplete="off"
+                    maxlength="500"
+                    aria-label="Enter command"
                 >
 
-                <button id="send" "Send"></button><button id="mic-btn">🎙</button>
+                <button
+                    id="send"
+                    type="button"
+                    aria-label="Send command"
+                    title="Send command"<button id="mic-btn">🎙</button>
                     ➤
                 </button>
 
             </div>
 
+            <div class="console-status">
+                <span class="status-dot"></span>
+                READY FOR COMMAND
+            </div>
+
         </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <div>J.A.R.V.I.S. MOBILE EDITION</div>
+            <small>ADVANCED AI CONSOLE</small>
+        </footer>
 
     </main>
 
 
-    <!-- FOOTER -->
-    <footer>
-        <span>J.A.R.V.I.S. MOBILE EDITION</span>
-        <span>FRONTEND SYSTEM v2.0</span>
-    </footer>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
+
