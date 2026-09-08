@@ -1,1 +1,188 @@
-ో మ// ===== 1. API KEY (Safe: browser లే) =====ాత్ర మlet API_KEY = localStorage.getItem('jarvis_key');if(!API_KEY){API_KEY = prompt('Enter your Gemini API Key:');if(API_KEY) localStorage.setItem('jarvis_key', API_KEY);}// ===== 2. SMART MODELS (ఒకటిfail అయితేnext auto try) =====const MODELS = ["gemini-3.6-flash", "gemini-flash-latest"];const chat=document.getElementById('chat');const input=document.getElementById('msg');const micBtn=document.getElementById('mic-btn');// ===== 3. GEMINI BRAIN (auto-fallback) =====async function callGemini(p){let lastErr;for(const m of MODELS){try{const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+m+":generateContent?key="+API_KEY,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{parts:[{text:p}]}]})});const data=await res.json();if(data.error){lastErr=new Error(data.error.message);if(/high demand|temporar|quota|rate|unavailable|no longeravailable|deprecated/i.test(data.error.message)) continue;throw lastErr;}return data.candidates[0].content.parts[0].text;}catch(e){ lastErr=e; }}throw lastErr;}async function askGemini(p){add('J.A.R.V.I.S: Thinking...','ai');try{const reply=await callGemini(p);chat.lastChild.innerText='J.A.R.V.I.S: '+reply;speak(reply); // reply వచ్చి న వేVOICEెంటన}catch(e){chat.lastChild.innerText='J.A.R.V.I.S: ERROR - '+e.message;}}// ===== 4. SPEECH RECOGNITION (వినడం) =====const SR=window.SpeechRecognition||window.webkitSpeechRecognition;const rec=new SR(); rec.lang='en-US'; // Telugu కి'te-IN'rec.onresult=(e)=>{const t=e.results[0][0].transcript;add('YOU: '+t,'user');askGemini(t);};micBtn.onclick=()=>{rec.start();micBtn.innerText='LISTENING...';};rec.onend=()=>{micBtn.innerText='🎙';};// ===== 5. TEXT-TO-SPEECH (మ్లాడటం) =====ాటlet voices=[];function loadVoices(){ voices=speechSynthesis.getVoices(); }loadVoices();speechSynthesis.onvoiceschanged=loadVoices;function speak(t){const u=new SpeechSynthesisUtterance(t);u.rate=1.05; u.pitch=0.85;const v=voices.find(v=>v.lang.startsWith('en'));if(v) u.voice=v;speechSynthesis.speak(u);}// ===== 6. TEXT SEND BUTTON =====document.getElementById('send').onclick=()=>{const t=input.value.trim(); if(!t)return;add('YOU: '+t,'user'); input.value=''; askGemini(t);};function add(t,w){const d=document.createElement('div');d.className='msg'+w;d.innerText=t;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;}
+const chat = document.getElementById("chat");
+const input = document.getElementById("msg");
+const send = document.getElementById("send");
+
+
+/* =========================
+   SEND BUTTON
+========================= */
+
+send.addEventListener("click", sendMessage);
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+input.addEventListener("keydown", (event) => {
+
+    if (event.key === "Enter" && !event.shiftKey) {
+
+        event.preventDefault();
+
+        sendMessage();
+    }
+
+});
+
+
+/* =========================
+   SEND MESSAGE
+========================= */
+
+function sendMessage() {
+
+    const text = input.value.trim();
+
+    if (!text) {
+        return;
+    }
+
+
+    /* Add user message */
+
+    addMessage(
+        "YOU",
+        text,
+        "user"
+    );
+
+
+    /* Clear input */
+
+    input.value = "";
+
+
+    /* Disable button while processing */
+
+    setSendingState(true);
+
+
+    /* Add processing message */
+
+    const processingMessage = addMessage(
+        "J.A.R.V.I.S",
+        "Processing command...",
+        "ai"
+    );
+
+
+    /*
+        DEMO RESPONSE
+
+        This is currently frontend-only.
+        Replace this section with your backend/API
+        when you connect the real AI system.
+    */
+
+    setTimeout(() => {
+
+        processingMessage.querySelector(
+            ".message-text"
+        ).textContent =
+            "Systems online. How may I assist you, Boss?";
+
+
+        setSendingState(false);
+
+        input.focus();
+
+    }, 1000);
+
+}
+
+
+/* =========================
+   ADD MESSAGE
+========================= */
+
+function addMessage(label, text, type) {
+
+    const message = document.createElement("div");
+
+    message.className = `msg ${type}`;
+
+
+    const messageLabel =
+        document.createElement("span");
+
+    messageLabel.className =
+        "message-label";
+
+    messageLabel.textContent =
+        label;
+
+
+    const messageText =
+        document.createElement("span");
+
+    messageText.className =
+        "message-text";
+
+    messageText.textContent =
+        text;
+
+
+    message.appendChild(messageLabel);
+
+    message.appendChild(messageText);
+
+    chat.appendChild(message);
+
+
+    /* Scroll to latest message */
+
+    chat.scrollTo({
+        top: chat.scrollHeight,
+        behavior: "smooth"
+    });
+
+
+    return message;
+}
+
+
+/* =========================
+   BUTTON STATE
+========================= */
+
+function setSendingState(isSending) {
+
+    send.disabled = isSending;
+
+    if (isSending) {
+
+        send.textContent = "⋯";
+
+        send.setAttribute(
+            "aria-label",
+            "Processing"
+        );
+
+    } else {
+
+        send.textContent = "➤";
+
+        send.setAttribute(
+            "aria-label",
+            "Send command"
+        );
+    }
+}
+
+
+/* =========================
+   INITIAL FOCUS
+========================= */
+
+window.addEventListener("load", () => {
+
+    input.focus();
+
+});
+
+
+
+
+
+
